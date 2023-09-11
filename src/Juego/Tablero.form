@@ -45,7 +45,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tableroGUI" min="-2" max="-2" attributes="0"/>
+                  <Component id="tablero" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="585" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -54,19 +54,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tableroGUI" max="32767" attributes="0"/>
+                  <Component id="tablero" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="tableroGUI">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="0" red="0" type="rgb"/>
-            </Property>
-          </Properties>
+        <Container class="javax.swing.JPanel" name="tablero">
 
           <Layout>
             <DimensionLayout dim="0">
