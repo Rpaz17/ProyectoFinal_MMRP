@@ -55,7 +55,7 @@ public class Tablero_Sequence extends JPanel{
     
     public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego, JPanel mano) {
         
-        ImageIcon fondo = new ImageIcon("src/img/tablero.png");
+        ImageIcon fondo = new ImageIcon("src/img/tablero1.png");
         
         tablero = fondo.getImage();
         
