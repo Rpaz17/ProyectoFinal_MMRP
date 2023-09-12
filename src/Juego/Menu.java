@@ -4,6 +4,7 @@
  */
 package Juego;
 
+import Configuracion.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
 public class Menu extends javax.swing.JFrame {
     DatosUsuario datos;
     Login login;
+    Configuracion config;
  
   
     
@@ -26,7 +28,7 @@ public class Menu extends javax.swing.JFrame {
         setLocationRelativeTo(this);
         this.login=login; 
         this.datos=datos;
-     
+       config = new Configuracion(this);
     }
 
     
@@ -60,9 +62,9 @@ public class Menu extends javax.swing.JFrame {
         btnConfiguracion.setBackground(new java.awt.Color(255, 255, 255));
         btnConfiguracion.setFont(new java.awt.Font("Consolas", 3, 18)); // NOI18N
         btnConfiguracion.setText("a)Configuracion");
-        btnConfiguracion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfiguracionActionPerformed(evt);
+        btnConfiguracion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfiguracionMouseClicked(evt);
             }
         });
         getContentPane().add(btnConfiguracion);
@@ -111,20 +113,20 @@ public class Menu extends javax.swing.JFrame {
         int respuesta = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que quieres cerrar sesión?", "Confirmación de cierre de sesión", JOptionPane.OK_CANCEL_OPTION);
     if (respuesta == JOptionPane.OK_OPTION) {
         login.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
     }
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
-
-    private void btnConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnConfiguracionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Juego juego = new Juego(login,datos);
             juego.setVisible(true);            
-            this.dispose();
+            this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnConfiguracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiguracionMouseClicked
+       config.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btnConfiguracionMouseClicked
 
     
 

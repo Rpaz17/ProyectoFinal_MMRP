@@ -1,6 +1,7 @@
 
 package Juego;
 
+import Configuracion.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,7 +12,6 @@ import javax.swing.JOptionPane;
  * @author MIguel
  */
 public class Login extends javax.swing.JFrame {
-
     DatosUsuario datos;
     /**
      * Creates new form Login

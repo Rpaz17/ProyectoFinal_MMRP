@@ -4,17 +4,18 @@
  */
 package Configuracion;
 
+import Juego.Menu;
+
 /**
  *
  * @author fampa
  */
 public class Configuracion extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Configuracion
-     */
-    public Configuracion() {
+    Menu  menu;
+ 
+    public Configuracion(Menu menu) {
         initComponents();
+    this.menu = menu;
     }
 
     /**
@@ -35,46 +36,66 @@ public class Configuracion extends javax.swing.JFrame {
         jRadioButton5 = new javax.swing.JRadioButton();
         color_fichas = new javax.swing.JLabel();
         cbx_colorficha = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CONFIGURACIÓN");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, 60));
 
         cantidad_jugadores.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        cantidad_jugadores.setForeground(new java.awt.Color(255, 255, 255));
         cantidad_jugadores.setText("CANTIDAD DE JUGADORES");
         getContentPane().add(cantidad_jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 270, 30));
 
         jRadioButton1.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("2");
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 210, 30));
 
         jRadioButton2.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("3");
         getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 210, 30));
 
         jRadioButton3.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setText("4");
         getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 210, 30));
 
         jRadioButton4.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton4.setText("6");
         getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 210, 30));
 
         jRadioButton5.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton5.setText("8");
         getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 210, 30));
 
         color_fichas.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        color_fichas.setForeground(new java.awt.Color(255, 255, 255));
         color_fichas.setText("COLOR DE FICHA");
         getContentPane().add(color_fichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 270, 30));
 
         cbx_colorficha.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        cbx_colorficha.setForeground(new java.awt.Color(255, 255, 255));
         cbx_colorficha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ROJO", "VERDE", "AZUL", "AMARILLO" }));
         getContentPane().add(cbx_colorficha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 200, 30));
+
+        jButton1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("REGRESAR");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 150, 40));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configuracionpp2.jpeg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -82,46 +103,22 @@ public class Configuracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+       menu.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Configuracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Configuracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Configuracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Configuracion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Configuracion().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cantidad_jugadores;
     private javax.swing.JComboBox<String> cbx_colorficha;
     private javax.swing.JLabel color_fichas;
     private javax.swing.JLabel fondo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
