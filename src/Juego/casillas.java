@@ -23,8 +23,7 @@ public class casillas {
         this.row = row;
         this.column = column;
         this.personajeActual = personajeActual;
-        
-        label.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
     }
        
     public void highlightMove(boolean activar) {

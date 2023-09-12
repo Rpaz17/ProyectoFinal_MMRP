@@ -32,8 +32,8 @@ public class Juego extends javax.swing.JFrame {
         setVisible(true);
         
         Tablero.setLayout(new GridLayout(1,1));
-        Tablero.setMinimumSize(new Dimension(600, 300));
-        Tablero.add(new Tablero_Sequence(datos, login, lblTurnos, this));        
+        Tablero.setPreferredSize(new Dimension(900, 700));
+        Tablero.add(new Tablero_Sequence(datos, login, lblTurnos, this, MazoCarta));        
     }
 
     /**
@@ -49,6 +49,7 @@ public class Juego extends javax.swing.JFrame {
         Tablero = new javax.swing.JPanel();
         Eliminados = new javax.swing.JPanel();
         lblTurnos = new javax.swing.JLabel();
+        MazoCarta = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Marvel Stratego - En Partida");
@@ -75,7 +76,7 @@ public class Juego extends javax.swing.JFrame {
         );
         TableroLayout.setVerticalGroup(
             TableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 547, Short.MAX_VALUE)
         );
 
         Eliminados.setLayout(null);
@@ -87,6 +88,17 @@ public class Juego extends javax.swing.JFrame {
         Eliminados.add(lblTurnos);
         lblTurnos.setBounds(20, 740, 160, 20);
 
+        javax.swing.GroupLayout MazoCartaLayout = new javax.swing.GroupLayout(MazoCarta);
+        MazoCarta.setLayout(MazoCartaLayout);
+        MazoCartaLayout.setHorizontalGroup(
+            MazoCartaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        MazoCartaLayout.setVerticalGroup(
+            MazoCartaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,16 +106,22 @@ public class Juego extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Tablero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Tablero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MazoCarta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Eliminados, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tablero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Eliminados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Tablero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MazoCarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleDescription("");
@@ -116,6 +134,7 @@ public class Juego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Eliminados;
+    private javax.swing.JPanel MazoCarta;
     private javax.swing.JPanel Tablero;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTurnos;

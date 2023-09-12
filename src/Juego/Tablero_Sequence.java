@@ -54,23 +54,28 @@ public class Tablero_Sequence extends JPanel{
         g.drawImage(tablero, 0, 0, getWidth(), getHeight(), this);
     }
     
-    public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego) {
+    public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego, JPanel mano) {
         
-       // ImageIcon fondo = new ImageIcon("src/imagenes/tablero.png");
-       // tablero = fondo.getImage();
+        ImageIcon fondo = new ImageIcon("src/img/tablero.png");
+        
+        tablero = fondo.getImage();
+        
+        
         
         this.datos = datos;
         this.login = login;
         this.juego = juego;
         this.txtAreaEliminados = txtAreaEliminados;
         this.Turnos = Turnos;
+        
 
 
         //Definir un grid de 10 x 10 para las fichas
-        setLayout(new GridLayout(10, 10));
+        setLayout(new GridLayout(11, 10));
+        mano.setLayout(new GridLayout(1,10));
 
         //Creacion de Jlabels para las fichas en el Grid de 10 x 10, se definen los personajes con otro metodo
-        fichas = new casillas[10][10];
+        fichas = new casillas[11][10];
         for (int filas = 0; filas < 10; filas++) {
             for (int columnas = 0; columnas < 10; columnas++) {
                 casillas ficha = new casillas(filas, columnas, null);
@@ -78,6 +83,12 @@ public class Tablero_Sequence extends JPanel{
                 add(fichas[filas][columnas].label);  
             }
         }
+        
+        for (int columnas = 0; columnas < 10; columnas++) {
+                casillas ficha = new casillas(10, columnas, null);
+                fichas[10][columnas] = ficha;
+                mano.add(fichas[10][columnas].label);  
+            }
         
         //Agregar evento para aceptar los clics del mouse en el tablero
         MouseAdapter mouseAdapter = new MouseAdapter() {
@@ -89,7 +100,7 @@ public class Tablero_Sequence extends JPanel{
                 //Si se selecciona una casilla con un personaje
                 if (SeSeleccionoCasilla == false) { 
                     //Se obtienen las coordenadas de la casilla
-                    for (int i = 0; i < 10; i++) {
+                    for (int i = 0; i < 11; i++) {
                         for (int j = 0; j < 10; j++) {
                             // La casilla seleccionada es de la casilla actual
                             if (fichas[i][j].label == label) {                         
@@ -109,7 +120,7 @@ public class Tablero_Sequence extends JPanel{
                     }
                 //si ya se selecciono una casilla y se quiere mover a otro puesto
                 } else { 
-                    for (int filas = 0; filas < 10; filas++)  {
+                    for (int filas = 0; filas < 11; filas++)  {
                         for (int columnas = 0; columnas < 10; columnas++) {
                             if (fichas[filas][columnas].label == label) {
                                 // Si se selecciona una  ficha del mismo bando se cambia a esa ficha 
@@ -137,7 +148,7 @@ public class Tablero_Sequence extends JPanel{
         };
 
         // Agregar el MouseListener a las casillas
-        for (int filas = 0; filas < 10; filas++) {
+        for (int filas = 0; filas < 11; filas++) {
             for (int columnas = 0; columnas < 10; columnas++) {
                 fichas[filas][columnas].label.addMouseListener(mouseAdapter);
             }
