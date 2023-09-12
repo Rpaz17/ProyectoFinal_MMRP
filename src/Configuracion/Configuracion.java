@@ -26,18 +26,58 @@ public class Configuracion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        cantidad_jugadores = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        color_fichas = new javax.swing.JLabel();
+        cbx_colorficha = new javax.swing.JComboBox<>();
+        fondo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 48)); // NOI18N
+        jLabel1.setText("CONFIGURACIÓN");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, 60));
+
+        cantidad_jugadores.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        cantidad_jugadores.setText("CANTIDAD DE JUGADORES");
+        getContentPane().add(cantidad_jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 270, 30));
+
+        jRadioButton1.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton1.setText("2");
+        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 210, 30));
+
+        jRadioButton2.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton2.setText("3");
+        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 210, 30));
+
+        jRadioButton3.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton3.setText("4");
+        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 210, 30));
+
+        jRadioButton4.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton4.setText("6");
+        getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 210, 30));
+
+        jRadioButton5.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton5.setText("8");
+        getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 210, 30));
+
+        color_fichas.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        color_fichas.setText("COLOR DE FICHA");
+        getContentPane().add(color_fichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 270, 30));
+
+        cbx_colorficha.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        cbx_colorficha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ROJO", "VERDE", "AZUL", "AMARILLO" }));
+        getContentPane().add(cbx_colorficha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 200, 30));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configuracionpp2.jpeg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +118,15 @@ public class Configuracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cantidad_jugadores;
+    private javax.swing.JComboBox<String> cbx_colorficha;
+    private javax.swing.JLabel color_fichas;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
     // End of variables declaration//GEN-END:variables
 }
