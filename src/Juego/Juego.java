@@ -1,4 +1,3 @@
-
 package Juego;
 
 import java.awt.Dimension;
