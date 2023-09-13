@@ -131,7 +131,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnCreatePlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePlayerActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:;
+        
         Create_Player player=new Create_Player(this,datos);
         player.setVisible(true);
          txtUsername.setText("");
