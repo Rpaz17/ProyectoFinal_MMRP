@@ -35,6 +35,7 @@ public class Tablero_Sequence extends JPanel{
     Juego juego;
     ArrayList<Personajes> ArregloCartasTablero = Personajes.getCartasTablero();
     ArrayList<Personajes> ArregloCartasMazo = Personajes.getCartasMazo();
+    ArrayList<Usuarios> ArregloUsuarios;
     private JTextArea txtAreaEliminados;
     private JLabel Turnos;
     private boolean SeguirJugando = true;
@@ -43,6 +44,7 @@ public class Tablero_Sequence extends JPanel{
     private casillas[][] fichas;
     private boolean TrunoJugador = false;
     private boolean HayGanador = false;
+    public int numerocoartas=5;
 
     
     private Image tablero;
@@ -50,28 +52,26 @@ public class Tablero_Sequence extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // Dibujar la imagen de fondo
+        int imageWidth = getWidth() / 10;
+        int imageHeight = getHeight() / 10;
         g.drawImage(tablero, 0, 0, getWidth(), getHeight(), this);
     }
     
     public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego, JPanel mano) {
-        
-        ImageIcon fondo = new ImageIcon("src/img/tablero1.png");
-        
-        tablero = fondo.getImage();
-        
-        
         
         this.datos = datos;
         this.login = login;
         this.juego = juego;
         this.txtAreaEliminados = txtAreaEliminados;
         this.Turnos = Turnos;
-        
-
+        this.ArregloUsuarios=datos.getListaUsuarios();
 
         //Definir un grid de 10 x 10 para las fichas
-        setLayout(new GridLayout(11, 10));
+        setLayout(new GridLayout(10, 10));
         mano.setLayout(new GridLayout(1,10));
+        ImageIcon fondo = new ImageIcon("src/img/tablero1.png");
+        
+        tablero = fondo.getImage();
 
         //Creacion de Jlabels para las fichas en el Grid de 10 x 10, se definen los personajes con otro metodo
         fichas = new casillas[11][10];
@@ -154,7 +154,9 @@ public class Tablero_Sequence extends JPanel{
         }
 
       CartasTableroColocar ();
-        
+      RepartirCartas();
+      mostarCartasMazo();
+      
         setVisible(true);
     }
     
@@ -216,6 +218,24 @@ public void CartasTableroColocar (){
     }
 }
 
+public void RepartirCartas(){
+    Random variablerandom=new Random();
+    for (Usuarios cantidadusuarios: ArregloUsuarios){
+        for (int i = 0; i < numerocoartas; i++) {
+            int numeroR=variablerandom.nextInt(ArregloCartasMazo.size());
+            cantidadusuarios.obtenerMazoPersonal().add(ArregloCartasMazo.get(numeroR));
+            ArregloCartasMazo.remove(numeroR);
+        }
+    }   
+}
+
+public void mostarCartasMazo(){
+    for (int i = 0; i < numerocoartas ; i++) {
+        Usuarios hola=ArregloUsuarios.get(0);
+        Personajes hi=(Personajes) hola.obtenerMazoPersonal().get(i);
+        fichas[10][i].setPersonaje(hi);
+    }
+}
 
 
 

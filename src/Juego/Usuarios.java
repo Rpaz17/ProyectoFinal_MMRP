@@ -4,6 +4,8 @@
  */
 package Juego;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Azalia
@@ -12,13 +14,13 @@ public class Usuarios {
     
     private String username,password;
     private int puntos;
+    private ArrayList<Personajes> MazoUsuario;
     
     public Usuarios(String username,String password){
        this.username=username;
        this.password=password;
        this.puntos=0;
-       
-       
+       this.MazoUsuario=new ArrayList<>();
     }
     
     public void setUsername(String username){
@@ -44,9 +46,11 @@ public class Usuarios {
     public int getPuntos() {
         return puntos;
     }
-
-  
     
+    public ArrayList obtenerMazoPersonal(){
+        return MazoUsuario;
+    }
+
     public void IncrementarPuntos(int cantidad) {
        puntos = puntos + (cantidad - (puntos % cantidad));
     }
