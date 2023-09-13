@@ -201,7 +201,10 @@ public class Tablero_Sequence extends JPanel{
 
 // Se verifican los rangos de las fichas y gana quien tenga mayor rango (con excepciones)
 public Personajes EmpezarBatalla(Personajes atacante, Personajes defensor) {
-
+ 
+    if (atacante.RangoCarta==defensor.RangoCarta) {
+        return atacante;
+    }
         return null;
     }
 
@@ -236,6 +239,8 @@ public void mostarCartasMazo(){
         fichas[10][i].setPersonaje(hi);
     }
 }
+
+
 
 
 
