@@ -33,10 +33,17 @@ public class Configuracion extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        rojo = new javax.swing.JRadioButton();
         color_fichas = new javax.swing.JLabel();
-        cbx_colorficha = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        negro = new javax.swing.JRadioButton();
+        rosado = new javax.swing.JRadioButton();
+        amarillo = new javax.swing.JRadioButton();
+        verde = new javax.swing.JRadioButton();
+        naranja = new javax.swing.JRadioButton();
+        morado = new javax.swing.JRadioButton();
+        azul = new javax.swing.JRadioButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,20 +79,20 @@ public class Configuracion extends javax.swing.JFrame {
         jRadioButton4.setText("6");
         getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 210, 30));
 
-        jRadioButton5.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
-        jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton5.setText("8");
-        getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 210, 30));
+        rojo.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        rojo.setForeground(new java.awt.Color(255, 255, 255));
+        rojo.setText("ROJO");
+        rojo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rojoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(rojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 120, 30));
 
         color_fichas.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
         color_fichas.setForeground(new java.awt.Color(255, 255, 255));
         color_fichas.setText("COLOR DE FICHA");
-        getContentPane().add(color_fichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 270, 30));
-
-        cbx_colorficha.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
-        cbx_colorficha.setForeground(new java.awt.Color(255, 255, 255));
-        cbx_colorficha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ROJO", "VERDE", "AZUL", "AMARILLO" }));
-        getContentPane().add(cbx_colorficha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 200, 30));
+        getContentPane().add(color_fichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 270, 30));
 
         jButton1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,6 +103,81 @@ public class Configuracion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 150, 40));
+
+        jRadioButton6.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        jRadioButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton6.setText("8");
+        getContentPane().add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 210, 30));
+
+        negro.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        negro.setForeground(new java.awt.Color(255, 255, 255));
+        negro.setText("NEGRO");
+        negro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                negroMouseClicked(evt);
+            }
+        });
+        getContentPane().add(negro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, 120, 30));
+
+        rosado.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        rosado.setForeground(new java.awt.Color(255, 255, 255));
+        rosado.setText("ROSADO");
+        rosado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rosadoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(rosado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 110, 30));
+
+        amarillo.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        amarillo.setForeground(new java.awt.Color(255, 255, 255));
+        amarillo.setText("AMARILLO");
+        amarillo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                amarilloMouseClicked(evt);
+            }
+        });
+        getContentPane().add(amarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 130, 30));
+
+        verde.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        verde.setForeground(new java.awt.Color(255, 255, 255));
+        verde.setText("VERDE");
+        verde.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verdeMouseClicked(evt);
+            }
+        });
+        getContentPane().add(verde, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 120, 30));
+
+        naranja.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        naranja.setForeground(new java.awt.Color(255, 255, 255));
+        naranja.setText("ANARANJADO");
+        naranja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                naranjaMouseClicked(evt);
+            }
+        });
+        getContentPane().add(naranja, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 160, 30));
+
+        morado.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        morado.setForeground(new java.awt.Color(255, 255, 255));
+        morado.setText("MORADO");
+        morado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                moradoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(morado, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 120, 30));
+
+        azul.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        azul.setForeground(new java.awt.Color(255, 255, 255));
+        azul.setText("AZUL");
+        azul.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                azulMouseClicked(evt);
+            }
+        });
+        getContentPane().add(azul, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 110, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/configuracionpp2.jpeg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -108,14 +190,47 @@ public class Configuracion extends javax.swing.JFrame {
        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void rojoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rojoMouseClicked
+        
+    }//GEN-LAST:event_rojoMouseClicked
+
+    private void azulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_azulMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_azulMouseClicked
+
+    private void verdeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verdeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verdeMouseClicked
+
+    private void amarilloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_amarilloMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_amarilloMouseClicked
+
+    private void rosadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rosadoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rosadoMouseClicked
+
+    private void negroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_negroMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_negroMouseClicked
+
+    private void moradoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moradoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moradoMouseClicked
+
+    private void naranjaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_naranjaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_naranjaMouseClicked
+
     /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton amarillo;
+    private javax.swing.JRadioButton azul;
     private javax.swing.JLabel cantidad_jugadores;
-    private javax.swing.JComboBox<String> cbx_colorficha;
     private javax.swing.JLabel color_fichas;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
@@ -124,6 +239,12 @@ public class Configuracion extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton morado;
+    private javax.swing.JRadioButton naranja;
+    private javax.swing.JRadioButton negro;
+    private javax.swing.JRadioButton rojo;
+    private javax.swing.JRadioButton rosado;
+    private javax.swing.JRadioButton verde;
     // End of variables declaration//GEN-END:variables
 }
