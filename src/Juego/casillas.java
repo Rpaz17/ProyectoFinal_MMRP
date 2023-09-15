@@ -51,9 +51,7 @@ public class casillas {
              if (personajeActual.icono != null) {
                 label.setIcon(personajeActual.icono);
             }
-             else {
-                label.setText(personajeActual.NombreCarta);
-            }
+            
         }        
     }
     
