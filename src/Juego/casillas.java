@@ -30,7 +30,10 @@ public class casillas {
         if (activar) {
             label.setBackground(Color.green);
             label.setOpaque(true);
-        } else label.setOpaque(false);
+        } else {
+            label.setOpaque(false);
+            label.setBackground(null);
+        }
     }
 
     public int getRow() {

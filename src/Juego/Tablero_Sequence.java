@@ -43,6 +43,7 @@ public class Tablero_Sequence extends JPanel {
     private boolean TrunoJugador = false;
     private boolean HayGanador = false;
     public int numerocoartas = 5;
+    public int posArreglo = 0;
 
     private Image tablero;
 
@@ -110,8 +111,6 @@ public class Tablero_Sequence extends JPanel {
                                 // Comprobar que la casilla contenga un personaje y sea el turno correcto
                                 if (casillaSeleccionada.personajeActual != null && casillaSeleccionada.personajeActual.FichaColocada == TrunoJugador) {
                                     SeSeleccionoCasilla = true;
-                                    cartaSeleccionada = casillaSeleccionada.personajeActual;
-                                    ComprobarMovimientoValido(-1, -1); // Actualizar las casillas válidas
                                     break;
                                 } else {
                                     casillaSeleccionada = null;
@@ -131,13 +130,13 @@ public class Tablero_Sequence extends JPanel {
                                     if (fichas[filas][columnas].personajeActual.FichaColocada == TrunoJugador) {
                                         // Actualizar casillas
                                         casillaSeleccionada = fichas[filas][columnas];
-                                        ComprobarMovimientoValido(-1, -1); // Actualizar las casillas válidas
                                         break;
                                     }
                                 }
                                 // Si se comprobó que el movimiento es válido se mueve a esa casilla seleccionada
                                 if (ComprobarMovimientoValido(filas, columnas)) {
-                                    moverPersonaje(filas, columnas);
+                                    moverCarta(filas, columnas);
+                                    SeSeleccionoCasilla = false;
                                 } else {
                                     JOptionPane.showMessageDialog(null, "Las casillas válidas son de color verde.");
                                 }
@@ -157,37 +156,17 @@ public class Tablero_Sequence extends JPanel {
 
         CartasTableroColocar();
         RepartirCartas();
-        mostarCartasMazo();
+        cambiarTurnoMazo();
 
         setVisible(true);
     }
 
     private boolean ComprobarMovimientoValido(int fila, int columna) {
-        if (casillaSeleccionada.personajeActual != null) {
-            // Obtener el rango de la carta seleccionada
-            int rangoSeleccionado = casillaSeleccionada.personajeActual.RangoCarta;
-
-            // Reiniciar las casillas válidas y quitar el resaltado previo
-            casillasValidas.clear();
-            for (int i = 0; i < 11; i++) {
-                for (int j = 0; j < 10; j++) {
-                    fichas[i][j].label.setBorder(null);
-                    if (fichas[i][j].personajeActual != null && fichas[i][j].personajeActual.RangoCarta == rangoSeleccionado) {
-                        casillasValidas.add(fichas[i][j]);
-                        fichas[i][j].label.setBorder(BorderFactory.createLineBorder(Color.GREEN, 2));
-                    }
-                }
-            }
-
-            // Verificar si la casilla seleccionada está en las casillas válidas
-            casillasValidas.add(casillaSeleccionada); // Agregar la casilla seleccionada a las válidas para permitir el movimiento de vuelta
-            return casillasValidas.contains(fichas[fila][columna]);
-        }
-        return false;
+        return true;
     }
 
     // Se mueven los personajes
-    private void moverPersonaje(int filanueva, int columananueva) {
+    private void moverCarta(int filanueva, int columananueva) {
         String TurnoDeUsuario = Turnos.getText();
         // Se verifica que haya un personaje para empezar el combate
         if (fichas[filanueva][columananueva].personajeActual != null) {
@@ -198,11 +177,18 @@ public class Tablero_Sequence extends JPanel {
             if (casillaSeleccionada.personajeActual == ganador) {
                 casillaSeleccionada.setPersonaje(null);
                 fichas[filanueva][columananueva].setPersonaje(ganador);
+                posArreglo++;
+                if(posArreglo >= ArregloUsuarios.size()){
+                    posArreglo = 0;
+                }
+                cambiarTurnoMazo();
             } else {
             }
         }
     }
 
+    
+    
     // Se verifican los rangos de las fichas y gana quien tenga mayor rango (con excepciones)
     public Personajes EmpezarBatalla(Personajes atacante, Personajes defensor) {
         if (atacante.RangoCarta == defensor.RangoCarta) {
@@ -231,12 +217,15 @@ public class Tablero_Sequence extends JPanel {
             }
         }
     }
-
-    public void mostarCartasMazo() {
+   
+    public void cambiarTurnoMazo() {
+         JOptionPane.showMessageDialog(null, "El u");
         for (int i = 0; i < numerocoartas; i++) {
-            Usuarios hola = ArregloUsuarios.get(0);
+            Usuarios hola = ArregloUsuarios.get(posArreglo);
             Personajes hi = (Personajes) hola.obtenerMazoPersonal().get(i);
             fichas[10][i].setPersonaje(hi);
         }
     }
+    
+    
 }
