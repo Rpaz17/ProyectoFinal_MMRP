@@ -222,9 +222,9 @@ public class Configuracion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_naranjaMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+public void setColors(){
+    
+}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
