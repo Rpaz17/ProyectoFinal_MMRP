@@ -15,7 +15,7 @@ public class casillas {
     int row;
     int column;
     boolean selected = false;
-    
+    boolean jaja ;
     
    
     public casillas(int row, int column, Personajes personajeActual) {        
@@ -23,16 +23,21 @@ public class casillas {
         this.row = row;
         this.column = column;
         this.personajeActual = personajeActual;
+        
+    }
 
+    public boolean isJaja() {
+        return jaja;
     }
        
     public void highlightMove(boolean activar) {
         if (activar) {
-            label.setBorder(BorderFactory.createLineBorder(Color.PINK,3));
-            label.setOpaque(true);
+            jaja = true;
+            label.setBorder(BorderFactory.createLineBorder(Color.magenta,7));
         } else {
-            label.setOpaque(false);
-            label.setBackground(null);
+            // la variable jaja evalua que la ficha este coloreada o no, optimiza el proceso
+            jaja = false;
+            label.setBorder(null);
         }
     }
 

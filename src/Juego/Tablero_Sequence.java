@@ -52,7 +52,7 @@ public class Tablero_Sequence extends JPanel {
     // Atributos adicionales para resaltar casillas con el mismo rango
     private Personajes cartaSeleccionada = null;
     private ArrayList<casillas> casillasValidas = new ArrayList<>();
-
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -60,11 +60,11 @@ public class Tablero_Sequence extends JPanel {
         int imageWidth = getWidth() / 10;
         int imageHeight = getHeight() / 10;
         g.drawImage(tablero, 0, 0, getWidth(), getHeight(), this);
-
+        
     }
-
+    
     public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego, JPanel mano, JLabel timer) {
-
+        
         this.datos = datos;
         this.login = login;
         this.juego = juego;
@@ -72,12 +72,12 @@ public class Tablero_Sequence extends JPanel {
         this.Turnos = Turnos;
         this.ArregloUsuarios = datos.getListaUsuarios();
         time = timer;
-        
+
         // Definir un grid de 10 x 10 para las fichas
         setLayout(new GridLayout(10, 10));
         mano.setLayout(new GridLayout(1, 10));
         ImageIcon fondo = new ImageIcon("src/img/tablero1.png");
-
+        
         tablero = fondo.getImage();
 
         // Creacion de Jlabels para las fichas en el Grid de 10 x 10, se definen los personajes con otro metodo
@@ -89,13 +89,13 @@ public class Tablero_Sequence extends JPanel {
                 add(fichas[filas][columnas].label);
             }
         }
-
+        
         for (int columnas = 0; columnas < 10; columnas++) {
             casillas ficha = new casillas(10, columnas, null);
             fichas[10][columnas] = ficha;
             mano.add(fichas[10][columnas].label);
         }
-
+        
         tiempo = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (seconds == 0) {
@@ -107,14 +107,14 @@ public class Tablero_Sequence extends JPanel {
                     }
                     cambiarTurnoMazo();
                 }
-
+                
                 seconds--;
-
+                
                 int minutos = seconds / 60;
                 int segundos = seconds % 60;
-
+                
                 time.setText("Tiempo restante: " + String.format("%02d:%02d", minutos, segundos));
-
+                
             }
         });
         // Agregar evento para aceptar los clics del mouse en el tablero
@@ -153,6 +153,7 @@ public class Tablero_Sequence extends JPanel {
                                 if (fichas[filas][columnas].personajeActual != null) {
                                     if (fichas[filas][columnas].personajeActual.FichaColocada == TrunoJugador) {
                                         // Actualizar casillas
+                                        nose(casillaSeleccionada.personajeActual);
                                         casillaSeleccionada = fichas[filas][columnas];
                                         break;
                                     }
@@ -177,14 +178,14 @@ public class Tablero_Sequence extends JPanel {
                 fichas[filas][columnas].label.addMouseListener(mouseAdapter);
             }
         }
-
+        
         CartasTableroColocar();
         RepartirCartas();
         cambiarTurnoMazo();
-
+        
         setVisible(true);
     }
-
+    
     private boolean ComprobarMovimientoValido(int fila, int columna) {
         return true;
     }
@@ -192,11 +193,11 @@ public class Tablero_Sequence extends JPanel {
     // Se mueven los personajes
     private void moverCarta(int filanueva, int columananueva) {
         String TurnoDeUsuario = Turnos.getText();
-
+        
         if (fichas[filanueva][columananueva].personajeActual != null) {
-
+            
             Personajes ganador = EmpezarBatalla(casillaSeleccionada.personajeActual, fichas[filanueva][columananueva].personajeActual);
-
+            
             if (ganador == null) {
             } else if (casillaSeleccionada.personajeActual == ganador) {
                 casillaSeleccionada.setPersonaje(null);
@@ -204,7 +205,7 @@ public class Tablero_Sequence extends JPanel {
             } else {
                 casillaSeleccionada.setPersonaje(null);
             }
-
+            
             return;
         }
     }
@@ -213,12 +214,13 @@ public class Tablero_Sequence extends JPanel {
     public Personajes EmpezarBatalla(Personajes atacante, Personajes defensor) {
         if (atacante.RangoCarta == defensor.RangoCarta) {
             ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().remove(atacante);
-            seconds = 0 ;
+            seconds = 0;
+            nose(null);
             return atacante;
         }
         return null;
     }
-
+    
     public void CartasTableroColocar() {
         int hola = 0;
         for (int Fila = 0; Fila < 10; Fila++) {
@@ -228,7 +230,7 @@ public class Tablero_Sequence extends JPanel {
             }
         }
     }
-
+    
     public void RepartirCartas() {
         Random variablerandom = new Random();
         for (Usuarios cantidadusuarios : ArregloUsuarios) {
@@ -239,19 +241,36 @@ public class Tablero_Sequence extends JPanel {
             }
         }
     }
-
+    
     public void cambiarTurnoMazo() {
         JOptionPane.showMessageDialog(null, "Turno de: " + ArregloUsuarios.get(posArreglo).getUsername());
-       if (seconds == 0){
-           tiempo.stop();
-           seconds =120;
-           tiempo.start();
-       }
+        tiempo.stop();
+        seconds = 120;
+        tiempo.start();
         for (int i = 0; i < ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().size(); i++) {
             Usuarios usuario = ArregloUsuarios.get(posArreglo);
             Personajes carta = (Personajes) usuario.obtenerMazoPersonal().get(i);
             fichas[10][i].setPersonaje(carta);
         }
     }
-
+    
+    public void nose(Personajes carta) {
+        for (int f = 0; f < 10; f++) {
+            for (int c = 0; c < 10; c++) {
+                if (fichas[f][c].isJaja() == true) {
+                    fichas[f][c].highlightMove(false);
+                }
+            }
+        }
+        
+        if (carta != null) {
+            for (int f = 0; f < 10; f++) {
+                for (int c = 0; c < 10; c++) {
+                    if (carta.RangoCarta == fichas[f][c].personajeActual.RangoCarta) {
+                        fichas[f][c].highlightMove(true);
+                    }
+                }
+            }
+        }
+    }
 }

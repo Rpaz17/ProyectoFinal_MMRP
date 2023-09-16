@@ -52,7 +52,7 @@ public class Juego extends javax.swing.JFrame {
         MazoCarta = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Marvel Stratego - En Partida");
+        setTitle("SEQUENCE");
         setSize(new java.awt.Dimension(0, 0));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
