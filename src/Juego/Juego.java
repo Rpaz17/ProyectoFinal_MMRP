@@ -32,7 +32,7 @@ public class Juego extends javax.swing.JFrame {
         
         Tablero.setLayout(new GridLayout(1,1));
         Tablero.setPreferredSize(new Dimension(900, 700));
-        Tablero.add(new Tablero_Sequence(datos, login, lblTurnos, this, MazoCarta));        
+        Tablero.add(new Tablero_Sequence(datos, login, lblTurnos, this, MazoCarta, timer));        
     }
 
     /**
@@ -48,6 +48,7 @@ public class Juego extends javax.swing.JFrame {
         Tablero = new javax.swing.JPanel();
         Eliminados = new javax.swing.JPanel();
         lblTurnos = new javax.swing.JLabel();
+        timer = new javax.swing.JLabel();
         MazoCarta = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -85,7 +86,9 @@ public class Juego extends javax.swing.JFrame {
         lblTurnos.setText("Turno de: ");
         lblTurnos.setToolTipText("");
         Eliminados.add(lblTurnos);
-        lblTurnos.setBounds(20, 740, 160, 20);
+        lblTurnos.setBounds(20, 740, 300, 40);
+        Eliminados.add(timer);
+        timer.setBounds(20, 10, 190, 40);
 
         javax.swing.GroupLayout MazoCartaLayout = new javax.swing.GroupLayout(MazoCarta);
         MazoCarta.setLayout(MazoCartaLayout);
@@ -137,5 +140,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JPanel Tablero;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTurnos;
+    private javax.swing.JLabel timer;
     // End of variables declaration//GEN-END:variables
 }

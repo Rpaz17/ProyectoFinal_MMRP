@@ -44,8 +44,10 @@ public class Tablero_Sequence extends JPanel {
     private boolean HayGanador = false;
     public int numerocoartas = 5;
     public int posArreglo = 0;
-
+    public JLabel time;
+    int seconds;
     private Image tablero;
+    Timer tiempo;
 
     // Atributos adicionales para resaltar casillas con el mismo rango
     private Personajes cartaSeleccionada = null;
@@ -61,7 +63,7 @@ public class Tablero_Sequence extends JPanel {
 
     }
 
-    public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego, JPanel mano) {
+    public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego, JPanel mano, JLabel timer) {
 
         this.datos = datos;
         this.login = login;
@@ -69,7 +71,8 @@ public class Tablero_Sequence extends JPanel {
         this.txtAreaEliminados = txtAreaEliminados;
         this.Turnos = Turnos;
         this.ArregloUsuarios = datos.getListaUsuarios();
-
+        time = timer;
+        
         // Definir un grid de 10 x 10 para las fichas
         setLayout(new GridLayout(10, 10));
         mano.setLayout(new GridLayout(1, 10));
@@ -93,6 +96,27 @@ public class Tablero_Sequence extends JPanel {
             mano.add(fichas[10][columnas].label);
         }
 
+        tiempo = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (seconds == 0) {
+                    ((Timer) e.getSource()).stop(); // Detener el cronómetro cuando llegue a 0
+                    
+                    posArreglo++;
+                    if (posArreglo >= ArregloUsuarios.size()) {
+                        posArreglo = 0;
+                    }
+                    cambiarTurnoMazo();
+                }
+
+                seconds--;
+
+                int minutos = seconds / 60;
+                int segundos = seconds % 60;
+
+                time.setText("Tiempo restante: " + String.format("%02d:%02d", minutos, segundos));
+
+            }
+        });
         // Agregar evento para aceptar los clics del mouse en el tablero
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
@@ -168,30 +192,28 @@ public class Tablero_Sequence extends JPanel {
     // Se mueven los personajes
     private void moverCarta(int filanueva, int columananueva) {
         String TurnoDeUsuario = Turnos.getText();
-        // Se verifica que haya un personaje para empezar el combate
-        if (fichas[filanueva][columananueva].personajeActual != null) {
-            Personajes ganador = EmpezarBatalla(casillaSeleccionada.personajeActual, fichas[filanueva][columananueva].personajeActual);
-            String mensajeBatalla = "" + casillaSeleccionada.personajeActual.toString() + " vs " + fichas[filanueva][columananueva].personajeActual.toString() + "\nGanador: " + (ganador != null ? ganador.toString() : "Empate" + "    ");
-            JOptionPane.showMessageDialog(null, mensajeBatalla);
 
-            if (casillaSeleccionada.personajeActual == ganador) {
+        if (fichas[filanueva][columananueva].personajeActual != null) {
+
+            Personajes ganador = EmpezarBatalla(casillaSeleccionada.personajeActual, fichas[filanueva][columananueva].personajeActual);
+
+            if (ganador == null) {
+            } else if (casillaSeleccionada.personajeActual == ganador) {
                 casillaSeleccionada.setPersonaje(null);
                 fichas[filanueva][columananueva].setPersonaje(ganador);
-                posArreglo++;
-                if(posArreglo >= ArregloUsuarios.size()){
-                    posArreglo = 0;
-                }
-                cambiarTurnoMazo();
             } else {
+                casillaSeleccionada.setPersonaje(null);
             }
+
+            return;
         }
     }
 
-    
-    
     // Se verifican los rangos de las fichas y gana quien tenga mayor rango (con excepciones)
     public Personajes EmpezarBatalla(Personajes atacante, Personajes defensor) {
         if (atacante.RangoCarta == defensor.RangoCarta) {
+            ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().remove(atacante);
+            seconds = 0 ;
             return atacante;
         }
         return null;
@@ -217,15 +239,19 @@ public class Tablero_Sequence extends JPanel {
             }
         }
     }
-   
+
     public void cambiarTurnoMazo() {
-         JOptionPane.showMessageDialog(null, "El u");
-        for (int i = 0; i < numerocoartas; i++) {
-            Usuarios hola = ArregloUsuarios.get(posArreglo);
-            Personajes hi = (Personajes) hola.obtenerMazoPersonal().get(i);
-            fichas[10][i].setPersonaje(hi);
+        JOptionPane.showMessageDialog(null, "Turno de: " + ArregloUsuarios.get(posArreglo).getUsername());
+       if (seconds == 0){
+           tiempo.stop();
+           seconds =120;
+           tiempo.start();
+       }
+        for (int i = 0; i < ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().size(); i++) {
+            Usuarios usuario = ArregloUsuarios.get(posArreglo);
+            Personajes carta = (Personajes) usuario.obtenerMazoPersonal().get(i);
+            fichas[10][i].setPersonaje(carta);
         }
     }
-    
-    
+
 }

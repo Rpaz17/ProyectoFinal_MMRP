@@ -28,7 +28,7 @@ public class casillas {
        
     public void highlightMove(boolean activar) {
         if (activar) {
-            label.setBackground(Color.green);
+            label.setBorder(BorderFactory.createLineBorder(Color.PINK,3));
             label.setOpaque(true);
         } else {
             label.setOpaque(false);
