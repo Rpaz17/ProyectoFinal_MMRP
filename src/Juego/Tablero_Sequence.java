@@ -45,6 +45,7 @@ public class Tablero_Sequence extends JPanel {
     public int numerocoartas = 5;
     public int posArreglo = 0;
     public JLabel time;
+    public JLabel ucj;
     int seconds;
     private Image tablero;
     Timer tiempo;
@@ -63,7 +64,7 @@ public class Tablero_Sequence extends JPanel {
         
     }
     
-    public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego, JPanel mano, JLabel timer) {
+    public Tablero_Sequence(DatosUsuario datos, Login login, JLabel Turnos, Juego juego, JPanel mano, JLabel timer, JLabel ucj) {
         
         this.datos = datos;
         this.login = login;
@@ -72,7 +73,7 @@ public class Tablero_Sequence extends JPanel {
         this.Turnos = Turnos;
         this.ArregloUsuarios = datos.getListaUsuarios();
         time = timer;
-
+        this.ucj = ucj;
         // Definir un grid de 10 x 10 para las fichas
         setLayout(new GridLayout(10, 10));
         mano.setLayout(new GridLayout(1, 10));
@@ -216,6 +217,8 @@ public class Tablero_Sequence extends JPanel {
             ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().remove(atacante);
             seconds = 0;
             nose(null);
+            ucj.setIcon(atacante.getIcon());
+            atacante.setNose();
             return atacante;
         }
         return null;
@@ -247,6 +250,9 @@ public class Tablero_Sequence extends JPanel {
         tiempo.stop();
         seconds = 120;
         tiempo.start();
+        if(ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().size() < numerocoartas){
+            addCard(ArregloUsuarios.get(posArreglo).obtenerMazoPersonal());
+        }
         for (int i = 0; i < ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().size(); i++) {
             Usuarios usuario = ArregloUsuarios.get(posArreglo);
             Personajes carta = (Personajes) usuario.obtenerMazoPersonal().get(i);
@@ -272,5 +278,13 @@ public class Tablero_Sequence extends JPanel {
                 }
             }
         }
+    }
+    
+    public void addCard( ArrayList <Personajes> aja){
+        Random implicito = new Random();
+        int numRandom = implicito.nextInt(ArregloCartasMazo.size());
+        aja.add(ArregloCartasMazo.get(numRandom));
+        ArregloCartasMazo.remove(numRandom);
+        JOptionPane.showMessageDialog(null, "Se añadió una nueva carta a su baraja.");
     }
 }

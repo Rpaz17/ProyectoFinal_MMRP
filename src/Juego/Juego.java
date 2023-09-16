@@ -32,7 +32,7 @@ public class Juego extends javax.swing.JFrame {
         
         Tablero.setLayout(new GridLayout(1,1));
         Tablero.setPreferredSize(new Dimension(900, 700));
-        Tablero.add(new Tablero_Sequence(datos, login, lblTurnos, this, MazoCarta, timer));        
+        Tablero.add(new Tablero_Sequence(datos, login, lblTurnos, this, MazoCarta, timer, ucjlabel));        
     }
 
     /**
@@ -49,6 +49,8 @@ public class Juego extends javax.swing.JFrame {
         Eliminados = new javax.swing.JPanel();
         lblTurnos = new javax.swing.JLabel();
         timer = new javax.swing.JLabel();
+        ucjlabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         MazoCarta = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -61,7 +63,7 @@ public class Juego extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 87, Short.MAX_VALUE)
+            .addGap(0, 101, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,7 +74,7 @@ public class Juego extends javax.swing.JFrame {
         Tablero.setLayout(TableroLayout);
         TableroLayout.setHorizontalGroup(
             TableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+            .addGap(0, 632, Short.MAX_VALUE)
         );
         TableroLayout.setVerticalGroup(
             TableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,8 +89,22 @@ public class Juego extends javax.swing.JFrame {
         lblTurnos.setToolTipText("");
         Eliminados.add(lblTurnos);
         lblTurnos.setBounds(20, 740, 300, 40);
+
+        timer.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         Eliminados.add(timer);
         timer.setBounds(20, 10, 190, 40);
+
+        ucjlabel.setBackground(new java.awt.Color(150, 25, 25));
+        ucjlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ucjlabel.setOpaque(true);
+        Eliminados.add(ucjlabel);
+        ucjlabel.setBounds(30, 140, 140, 100);
+
+        jLabel1.setBackground(new java.awt.Color(150, 25, 25));
+        jLabel1.setText("ULTIMA CARTA JUGADA");
+        jLabel1.setOpaque(true);
+        Eliminados.add(jLabel1);
+        jLabel1.setBounds(30, 120, 140, 20);
 
         javax.swing.GroupLayout MazoCartaLayout = new javax.swing.GroupLayout(MazoCarta);
         MazoCarta.setLayout(MazoCartaLayout);
@@ -107,7 +123,7 @@ public class Juego extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Tablero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(MazoCarta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -138,8 +154,10 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JPanel Eliminados;
     private javax.swing.JPanel MazoCarta;
     private javax.swing.JPanel Tablero;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTurnos;
     private javax.swing.JLabel timer;
+    private javax.swing.JLabel ucjlabel;
     // End of variables declaration//GEN-END:variables
 }
