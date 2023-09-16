@@ -80,8 +80,7 @@ public class casillas {
                 label.setText(personajeActual.NombreCarta);
         }
     } 
-    
-   
+
     
     
     

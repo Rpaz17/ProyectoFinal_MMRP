@@ -97,6 +97,8 @@ public class Tablero_Sequence extends JPanel {
             mano.add(fichas[10][columnas].label);
         }
         
+        fichas[10][9].setPersonaje( new Personajes("basura",100,true,null));
+        
         tiempo = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (seconds == 0) {
@@ -210,7 +212,17 @@ public class Tablero_Sequence extends JPanel {
             return;
         }
     }
-
+   
+   public boolean Eliminar(int x){
+       for(int filas = 0; filas < 10; filas++){
+           for (int c =0; c<10; c++){
+               if (fichas[filas][c].personajeActual.RangoCarta == x) {
+                   return false;
+               }
+           }
+       }
+       return true;
+   }
     // Se verifican los rangos de las fichas y gana quien tenga mayor rango (con excepciones)
     public Personajes EmpezarBatalla(Personajes atacante, Personajes defensor) {
         if (atacante.RangoCarta == defensor.RangoCarta) {
@@ -287,4 +299,5 @@ public class Tablero_Sequence extends JPanel {
         ArregloCartasMazo.remove(numRandom);
         JOptionPane.showMessageDialog(null, "Se añadió una nueva carta a su baraja.");
     }
+    
 }

@@ -198,6 +198,7 @@ Carta_Tablero.add(new Personajes("Diamantes_9.", 39, true, null));
 Carta_Tablero.add(new Personajes("Diamantes_8.", 38, true, null));
 Carta_Tablero.add(new Personajes("Diamantes_7.", 37, true, null));
 Carta_Tablero.add(new Personajes("Diamantes_6.", 36, true, null));
+
 Carta_Tablero.add(new Personajes("Esquina_4.", 100, true, null));
 
 
