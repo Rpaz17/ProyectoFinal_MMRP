@@ -223,6 +223,7 @@ public class Tablero_Sequence extends JPanel {
        }
        return true;
    }
+   
     // Se verifican los rangos de las fichas y gana quien tenga mayor rango (con excepciones)
     public Personajes EmpezarBatalla(Personajes atacante, Personajes defensor) {
         if (atacante.RangoCarta == defensor.RangoCarta) {
