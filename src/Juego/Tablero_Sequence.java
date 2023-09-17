@@ -237,7 +237,7 @@ public class Tablero_Sequence extends JPanel {
         if (defensor.RangoCarta == 100) {
             if (Eliminar(atacante.RangoCarta) == true){
                 JOptionPane.showMessageDialog(null, "Se removio la carta "+atacante.NombreCarta + "de tu mazo");
-                
+                ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().remove(atacante);
                 return defensor;
             }else {
                 JOptionPane.showMessageDialog(null, "Todavia puedes usar esta carta, no puedes eliminarla");
@@ -291,7 +291,6 @@ public class Tablero_Sequence extends JPanel {
                 }
             }
         }
-        
         if (carta != null) {
             for (int f = 0; f < 10; f++) {
                 for (int c = 0; c < 10; c++) {
