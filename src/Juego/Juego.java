@@ -98,9 +98,8 @@ public class Juego extends javax.swing.JFrame {
         ucjlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ucjlabel.setOpaque(true);
         Eliminados.add(ucjlabel);
-        ucjlabel.setBounds(30, 140, 140, 100);
+        ucjlabel.setBounds(30, 140, 70, 100);
 
-        jLabel1.setBackground(new java.awt.Color(150, 25, 25));
         jLabel1.setText("ULTIMA CARTA JUGADA");
         jLabel1.setOpaque(true);
         Eliminados.add(jLabel1);

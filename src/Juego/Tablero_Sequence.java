@@ -233,6 +233,15 @@ public class Tablero_Sequence extends JPanel {
             atacante.setNose();
             return atacante;
         }
+        if (defensor.RangoCarta == 100) {
+            if (Eliminar(atacante.RangoCarta) == true){
+                JOptionPane.showMessageDialog(null, "Se removio la carta "+atacante.NombreCarta + "de tu mazo");
+                
+                return defensor;
+            }else {
+                JOptionPane.showMessageDialog(null, "Todavia puedes usar esta carta, no puedes eliminarla");
+            }
+        }
         return null;
     }
     
@@ -272,6 +281,7 @@ public class Tablero_Sequence extends JPanel {
         }
     }
     
+    // resalta la carta que esta en el mazo que desea ser colocada 
     public void nose(Personajes carta) {
         for (int f = 0; f < 10; f++) {
             for (int c = 0; c < 10; c++) {
@@ -292,6 +302,7 @@ public class Tablero_Sequence extends JPanel {
         }
     }
     
+    // añade una nueva carta al mazo luego de cada juego
     public void addCard( ArrayList <Personajes> aja){
         Random implicito = new Random();
         int numRandom = implicito.nextInt(ArregloCartasMazo.size());
