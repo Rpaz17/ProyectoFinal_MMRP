@@ -156,7 +156,7 @@ public class Tablero_Sequence extends JPanel {
                                 if (fichas[filas][columnas].personajeActual != null) {
                                     if (fichas[filas][columnas].personajeActual.FichaColocada == TrunoJugador) {
                                         // Actualizar casillas
-                                        nose(casillaSeleccionada.personajeActual);
+                                        Resaltador(casillaSeleccionada.personajeActual);
                                         casillaSeleccionada = fichas[filas][columnas];
                                         break;
                                     }
@@ -229,7 +229,7 @@ public class Tablero_Sequence extends JPanel {
         if (atacante.RangoCarta == defensor.RangoCarta) {
             ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().remove(atacante);
             seconds = 0;
-            nose(null);
+            Resaltador(null);
             ucj.setIcon(atacante.getIcon());
             atacante.setNose();
             return atacante;
@@ -283,7 +283,7 @@ public class Tablero_Sequence extends JPanel {
     }
     
     // resalta la carta que esta en el mazo que desea ser colocada 
-    public void nose(Personajes carta) {
+    public void Resaltador(Personajes carta) {
         for (int f = 0; f < 10; f++) {
             for (int c = 0; c < 10; c++) {
                 if (fichas[f][c].isJaja() == true) {
