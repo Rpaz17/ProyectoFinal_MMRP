@@ -39,6 +39,7 @@ public class Usuarios {
         return password;
     }
     
+    
     public String infoCreatePalayer(){
         return "\nUsername: "+username;  
     }

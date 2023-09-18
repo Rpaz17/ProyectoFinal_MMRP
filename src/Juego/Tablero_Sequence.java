@@ -97,7 +97,7 @@ public class Tablero_Sequence extends JPanel {
             mano.add(fichas[10][columnas].label);
         }
         
-        fichas[10][9].setPersonaje( new Personajes("basura",100,true,null));
+ 
         
         tiempo = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -230,10 +230,28 @@ public class Tablero_Sequence extends JPanel {
             ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().remove(atacante);
             seconds = 0;
             Resaltador(null);
+            atacante.NombreCarta="fichaamarillaaa";
             ucj.setIcon(atacante.getIcon());
             atacante.setNose();
+            atacante.loadIcon();
             return atacante;
         }
+        
+        if (atacante.RangoCarta==1000) {
+            ArregloUsuarios.get(posArreglo).obtenerMazoPersonal().remove(atacante);
+            seconds = 0;
+            Resaltador(null);
+            atacante.NombreCarta="fichaamarillaaa";
+            ucj.setIcon(atacante.getIcon());
+            atacante.setNose();
+            atacante.loadIcon();
+            return atacante;          
+        }
+        
+        
+        
+       
+        
         if (defensor.RangoCarta == 100) {
             if (Eliminar(atacante.RangoCarta) == true){
                 JOptionPane.showMessageDialog(null, "Se removio la carta "+atacante.NombreCarta + "de tu mazo");
@@ -310,5 +328,6 @@ public class Tablero_Sequence extends JPanel {
         ArregloCartasMazo.remove(numRandom);
         JOptionPane.showMessageDialog(null, "Se añadió una nueva carta a su baraja.");
     }
+
     
 }

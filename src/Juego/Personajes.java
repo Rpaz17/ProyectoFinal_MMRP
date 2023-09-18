@@ -60,7 +60,7 @@ public class Personajes {
         RangoCarta = -1;
     }
     
-    private void loadIcon() {
+    public void loadIcon() {
         String filename;
          if (!FichaColocada) {
             filename = "src/img/" + NombreCarta.replace(" ", "") + ".jpeg";
@@ -125,7 +125,7 @@ Carta_Tablero.add(new Personajes("Corazones_9.", 19, true, null));
 Carta_Tablero.add(new Personajes("Picas_Q.", 112, true, null));
 
 Carta_Tablero.add(new Personajes("Treboles_8.", 38, true, null));
-Carta_Tablero.add(new Personajes("Picas_R.", 113, true, null));
+Carta_Tablero.add(new Personajes("Picas_K.", 113, true, null));
 Carta_Tablero.add(new Personajes("Treboles_6.", 36, true, null));
 Carta_Tablero.add(new Personajes("Treboles_5.", 35, true, null));
 Carta_Tablero.add(new Personajes("Treboles_4.", 34, true, null));
@@ -133,7 +133,7 @@ Carta_Tablero.add(new Personajes("Treboles_3.", 33, true, null));
 Carta_Tablero.add(new Personajes("Treboles_2.", 32, true, null));
 Carta_Tablero.add(new Personajes("Diamantes_8.", 28, true, null));
 Carta_Tablero.add(new Personajes("Corazones_8.", 18, true, null));
-Carta_Tablero.add(new Personajes("Picas_R.", 113, true, null));
+Carta_Tablero.add(new Personajes("Picas_K.", 113, true, null));
 
 Carta_Tablero.add(new Personajes("Treboles_9.", 39, true, null));
 Carta_Tablero.add(new Personajes("Picas_Q.", 112, true, null));
@@ -239,7 +239,7 @@ Cartas_Mazo.add(new Personajes("Corazones_9", 19, false, null));
 Cartas_Mazo.add(new Personajes("Picas_Q", 112, false, null));
 
 Cartas_Mazo.add(new Personajes("Treboles_8", 38, false, null));
-Cartas_Mazo.add(new Personajes("Picas_R", 113, false, null));
+Cartas_Mazo.add(new Personajes("Picas_K", 113, false, null));
 Cartas_Mazo.add(new Personajes("Treboles_6", 36, false, null));
 Cartas_Mazo.add(new Personajes("Treboles_5", 35, false, null));
 Cartas_Mazo.add(new Personajes("Treboles_4", 34, false, null));
@@ -312,6 +312,14 @@ Cartas_Mazo.add(new Personajes("Diamantes_9", 29, false, null));
 Cartas_Mazo.add(new Personajes("Diamantes_8", 28, false, null));
 Cartas_Mazo.add(new Personajes("Diamantes_7", 27, false, null));
 Cartas_Mazo.add(new Personajes("Diamantes_6", 26, false, null));
+
+Cartas_Mazo.add(new Personajes("Treboles_J", 1000, false, null));
+Cartas_Mazo.add(new Personajes("Picas_J", 1000, false, null));
+
+Cartas_Mazo.add(new Personajes("Diamantes_6", 26, false, null));
+Cartas_Mazo.add(new Personajes("Diamantes_6", 26, false, null));
+
+
 
         
         return Cartas_Mazo;

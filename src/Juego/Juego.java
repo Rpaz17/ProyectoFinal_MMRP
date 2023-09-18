@@ -49,7 +49,6 @@ public class Juego extends javax.swing.JFrame {
         ucjlabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         MazoCarta = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("SEQUENCE");
@@ -82,7 +81,6 @@ public class Juego extends javax.swing.JFrame {
         Eliminados.setLayout(null);
 
         lblTurnos.setFont(new java.awt.Font("NSimSun", 1, 24)); // NOI18N
-        lblTurnos.setForeground(new java.awt.Color(0, 0, 0));
         lblTurnos.setText("Turno de: ");
         lblTurnos.setToolTipText("");
         Eliminados.add(lblTurnos);
@@ -103,22 +101,15 @@ public class Juego extends javax.swing.JFrame {
         Eliminados.add(jLabel1);
         jLabel1.setBounds(30, 120, 140, 20);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/basurero.png"))); // NOI18N
-
         javax.swing.GroupLayout MazoCartaLayout = new javax.swing.GroupLayout(MazoCarta);
         MazoCarta.setLayout(MazoCartaLayout);
         MazoCartaLayout.setHorizontalGroup(
             MazoCartaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MazoCartaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 632, Short.MAX_VALUE)
         );
         MazoCartaLayout.setVerticalGroup(
             MazoCartaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MazoCartaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+            .addGap(0, 107, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,7 +150,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JPanel MazoCarta;
     private javax.swing.JPanel Tablero;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTurnos;
     private javax.swing.JLabel timer;
