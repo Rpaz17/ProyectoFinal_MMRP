@@ -4,7 +4,6 @@
  */
 package Juego;
 
-import Configuracion.*;
 import javax.swing.JOptionPane;
 
 /**
