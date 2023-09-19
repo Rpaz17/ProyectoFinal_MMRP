@@ -6,15 +6,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author MIguel
- */
 public class Login extends javax.swing.JFrame {
     DatosUsuario datos;
-    /**
-     * Creates new form Login
-     */
+    Configuracion config;
+ 
     public Login() {
         initComponents();
         this.setSize(818, 538);
@@ -152,7 +147,7 @@ public class Login extends javax.swing.JFrame {
         //validacion de usuario y contrasena para luego abrir menu principal
         if(user !=null){
             if(user.getPassword().equals(password)){
-                Menu menu=new Menu(this,datos);
+                Menu menu=new Menu(this,datos,config);
                 menu.setVisible(true);
                 this.datos.UsuarioLogeado=username;
                 txtUsername.setText("");

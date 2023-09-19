@@ -6,28 +6,19 @@ package Juego;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Azalia
- */
+
 public class Menu extends javax.swing.JFrame {
     DatosUsuario datos;
     Login login;
     Configuracion config;
- 
-  
-    
-   
-    /**
-     * Creates new form Menu
-     */
-    public Menu(Login login,DatosUsuario datos) {
+
+    public Menu(Login login,DatosUsuario datos,Configuracion config) {
         initComponents();
         this.setSize(818, 538);
         setLocationRelativeTo(this);
         this.login=login; 
         this.datos=datos;
-       config = new Configuracion(this);
+        this.config = config;
     }
 
     

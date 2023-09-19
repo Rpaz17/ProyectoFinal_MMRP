@@ -63,6 +63,11 @@ public class casillas {
         }        
     }
     
+    public Personajes getPersonaje()
+    {
+        return personajeActual;
+    }
+    
     public void esconderCasilla(boolean esconder) {
         if (esconder) {
             if (personajeActual.iconoEscondido != null) {

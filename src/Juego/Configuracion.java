@@ -11,11 +11,15 @@ import Juego.Menu;
  * @author fampa
  */
 public class Configuracion extends javax.swing.JFrame {
-    Menu  menu;
- 
+
+    Menu menu;
+    ConfiguracionJava config;
+    Tablero_Sequence tablero;
+    
     public Configuracion(Menu menu) {
         initComponents();
-    this.menu = menu;
+        this.menu = menu;
+//        setAmount();
     }
 
     /**
@@ -29,14 +33,14 @@ public class Configuracion extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         cantidad_jugadores = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        two = new javax.swing.JRadioButton();
+        three = new javax.swing.JRadioButton();
+        four = new javax.swing.JRadioButton();
+        six = new javax.swing.JRadioButton();
         rojo = new javax.swing.JRadioButton();
         color_fichas = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        eight = new javax.swing.JRadioButton();
         negro = new javax.swing.JRadioButton();
         rosado = new javax.swing.JRadioButton();
         amarillo = new javax.swing.JRadioButton();
@@ -59,25 +63,45 @@ public class Configuracion extends javax.swing.JFrame {
         cantidad_jugadores.setText("CANTIDAD DE JUGADORES");
         getContentPane().add(cantidad_jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 270, 30));
 
-        jRadioButton1.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("2");
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 210, 30));
+        two.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        two.setForeground(new java.awt.Color(255, 255, 255));
+        two.setText("2");
+        two.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                twoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(two, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 210, 30));
 
-        jRadioButton2.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("3");
-        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 210, 30));
+        three.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        three.setForeground(new java.awt.Color(255, 255, 255));
+        three.setText("3");
+        three.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                threeMouseClicked(evt);
+            }
+        });
+        getContentPane().add(three, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 210, 30));
 
-        jRadioButton3.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("4");
-        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 210, 30));
+        four.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        four.setForeground(new java.awt.Color(255, 255, 255));
+        four.setText("4");
+        four.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fourMouseClicked(evt);
+            }
+        });
+        getContentPane().add(four, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 210, 30));
 
-        jRadioButton4.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
-        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton4.setText("6");
-        getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 210, 30));
+        six.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        six.setForeground(new java.awt.Color(255, 255, 255));
+        six.setText("6");
+        six.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sixMouseClicked(evt);
+            }
+        });
+        getContentPane().add(six, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 210, 30));
 
         rojo.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
         rojo.setForeground(new java.awt.Color(255, 255, 255));
@@ -104,10 +128,15 @@ public class Configuracion extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 150, 40));
 
-        jRadioButton6.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
-        jRadioButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton6.setText("8");
-        getContentPane().add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 210, 30));
+        eight.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
+        eight.setForeground(new java.awt.Color(255, 255, 255));
+        eight.setText("8");
+        eight.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eightMouseClicked(evt);
+            }
+        });
+        getContentPane().add(eight, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 210, 30));
 
         negro.setFont(new java.awt.Font("MS Gothic", 1, 24)); // NOI18N
         negro.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,12 +215,12 @@ public class Configuracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       menu.setVisible(true);
-       this.setVisible(false);
+        menu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void rojoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rojoMouseClicked
-        
+
     }//GEN-LAST:event_rojoMouseClicked
 
     private void azulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_azulMouseClicked
@@ -222,9 +251,58 @@ public class Configuracion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_naranjaMouseClicked
 
-public void setColors(){
-    
-}
+    private void twoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twoMouseClicked
+        config.CantJugadores = 2;
+    }//GEN-LAST:event_twoMouseClicked
+
+    private void threeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_threeMouseClicked
+        config.CantJugadores = 3;
+    }//GEN-LAST:event_threeMouseClicked
+
+    private void fourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fourMouseClicked
+        config.CantJugadores = 4;
+    }//GEN-LAST:event_fourMouseClicked
+
+    private void sixMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sixMouseClicked
+        config.CantJugadores = 6;
+    }//GEN-LAST:event_sixMouseClicked
+
+    private void eightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eightMouseClicked
+        config.CantJugadores = 8;
+    }//GEN-LAST:event_eightMouseClicked
+
+    public void setAmount() {
+        if (config.CantJugadores == 2) {
+            this.two.setSelected(true);
+        } else {
+            this.two.setSelected(false);
+            
+        }
+        if (config.CantJugadores == 3) {
+            this.three.setSelected(true);
+        } else {
+            this.three.setSelected(false);
+        }
+
+        if (config.CantJugadores == 4) {
+            this.four.setSelected(true);
+        } else {
+            this.four.setSelected(false);
+        }
+
+        if (config.CantJugadores == 6) {
+            this.six.setSelected(true);
+        } else {
+            this.six.setSelected(false);
+        }
+
+        if (config.CantJugadores == 8) {
+            this.eight.setSelected(true);
+        } else {
+            this.eight.setSelected(false);
+        }
+
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -232,19 +310,19 @@ public void setColors(){
     private javax.swing.JRadioButton azul;
     private javax.swing.JLabel cantidad_jugadores;
     private javax.swing.JLabel color_fichas;
+    private javax.swing.JRadioButton eight;
     private javax.swing.JLabel fondo;
+    private javax.swing.JRadioButton four;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton morado;
     private javax.swing.JRadioButton naranja;
     private javax.swing.JRadioButton negro;
     private javax.swing.JRadioButton rojo;
     private javax.swing.JRadioButton rosado;
+    private javax.swing.JRadioButton six;
+    private javax.swing.JRadioButton three;
+    private javax.swing.JRadioButton two;
     private javax.swing.JRadioButton verde;
     // End of variables declaration//GEN-END:variables
 }

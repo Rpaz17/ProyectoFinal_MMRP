@@ -56,18 +56,20 @@ public class DatosUsuario {
         while (usuarios.getFilePointer() < usuarios.length()) {
             String UsuarioActual = usuarios.readUTF();
             String UsuarioContra = usuarios.readUTF();
-            Usuarios obj = new Usuarios(UsuarioActual, UsuarioContra);
+            String Usuarionombre = usuarios.readUTF();
+            Usuarios obj = new Usuarios(UsuarioActual, UsuarioContra, Usuarionombre);
             agregarUsuario(obj);
 
         }
     }
 
-    public void AddJugadorDocument(String Usuario, String Contra) throws IOException {
+    public void AddJugadorDocument(String Usuario, String Contra,String Nombre) throws IOException {
 
         usuarios.seek(usuarios.length());
 
         usuarios.writeUTF(Usuario);
         usuarios.writeUTF(Contra);
+        usuarios.writeUTF(Nombre);
 
     }
 

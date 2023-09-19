@@ -12,13 +12,15 @@ import java.util.ArrayList;
  */
 public class Usuarios {
     
-    private String username,password;
+    private String username,password, Nombre, colorFicha;
     private int puntos;
     private ArrayList<Personajes> MazoUsuario;
     
-    public Usuarios(String username,String password){
-       this.username=username;
+    public Usuarios(String username,String password, String Nombre){
+      this.colorFicha = ""; 
+        this.username=username;
        this.password=password;
+       this.Nombre=Nombre;
        this.puntos=0;
        this.MazoUsuario=new ArrayList<>();
     }
@@ -39,9 +41,16 @@ public class Usuarios {
         return password;
     }
     
+    public void setColorFicha(String colorFicha){
+        this.colorFicha = colorFicha;
+    }
+    
+    public String getColorFicha(){
+        return colorFicha;
+    }
     
     public String infoCreatePalayer(){
-        return "\nUsername: "+username;  
+        return "\nUsername: "+username+"\nNombre: "+Nombre;  
     }
     
     public int getPuntos() {
